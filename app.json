@@ -1,0 +1,27 @@
+{
+    "pages": [
+        "pages/index/index",
+        "pages/registerVolun/registerVolun",
+        "pages/register/register",  
+        "pages/personInfo/personInfo", 
+        "pages/myVolunteer/myVolunteer", 
+        "pages/serveHis/serveHis", 
+        "pages/hisComment/hisComment", 
+        "pages/newTaskDetail/newTaskDetail", 
+        "pages/customer/customer", 
+        "pages/mycode/mycode", 
+        "pages/myCard/myCard", 
+        "pages/proposal/proposal", 
+        "pages/serverBook/serverBook", 
+        "pages/newTask/newTask", 
+        "pages/beforeComplete/beforeComplete",        
+        "pages/completed/completed"
+    ],
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#7ce6f4",
+        "navigationBarTitleText": "完美义工进万家",
+        "navigationBarTextStyle": "black",
+        "backgroundColor": "#f3f3f3"
+    }
+}

@@ -1,0 +1,36 @@
+<view class='wrap'>
+  <view class='list'>
+    <view class='list1'>
+      <view>
+        <image mode='aspectFit' src='../../images/bj03.png'></image>
+      </view>
+    </view>
+    <view class='list2'>
+      <view>
+        <view>
+          <view class='name'>
+            <text>{{detailData.name}}</text>
+          </view>
+          <view>
+            <text>联系电话：{{detailData.phone}}</text>
+          </view>
+          <view>
+            <text>完美VIP卡号：{{detailData.vip}}</text>
+          </view>
+          <view>
+            <text>服务地址：</text><text>{{detailData.service_area}}</text>
+          </view>
+          <view class='head'>
+            <image src='{{host + detailData.photo}}' mode='widthFix' wx:if="{{detailData.photo.length > 0}}"></image>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class='list4'></view>
+    <view class='list3'>
+      <view>
+      <navigator url='../../pages/registerVolun/registerVolun?type=update' >修改名片</navigator>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,9 @@
+<!--pages/register/register.wxml-->
+<view id='main'>
+  <view class='main'>
+    <image src='{{ hostImg + productImg }}' mode='widthFix'></image>
+    <view class='book'>
+      <view bindtap='showAddress'>我要预约</view>
+    </view>
+  </view>
+</view>

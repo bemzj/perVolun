@@ -1,0 +1,78 @@
+/* pages/public/public.wxss */
+
+.tipsBox {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    display: -webkit-flex;
+    -webkit-align-items: center;
+    -webkit-justify-content: center;
+    -webkit-flex-direction: column;
+    z-index: 10000;
+}
+.tips {
+    width: 87.33%;
+    font-size: 0;
+    position: relative;
+}
+.tips image {
+    width: 100%;
+}
+.tipsIn {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    display: -webkit-flex;
+    -webkit-align-items: center;
+    -webkit-justify-content: center;
+    -webkit-flex-direction: column;
+    font-size: 30rpx;
+}
+.tipsIn text {
+    font-size: 30rpx;
+    color: #393a38;
+    width: 80%;
+    display: block;
+    text-align: center;
+    margin: 40rpx auto 0;
+}
+.btnBox {
+    width: 80%;
+    margin-top: 70rpx;
+}
+.btnBox>view {
+    line-height: 84rpx;
+    background-color: #93e9f3;
+    border-radius: 8rpx;
+    font-size: 30rpx;
+    text-align: center;
+    color: white;
+    width: 100%;
+    float: left;
+}
+.btnBox>button {
+    line-height: 84rpx;
+    background-color: #93e9f3;
+    border-radius: 8rpx;
+    font-size: 30rpx;
+    text-align: center;
+    color: white;
+    width: 100%;
+    float: left;
+}
+.btnBox>view:nth-child(2) {
+    float: right;
+}

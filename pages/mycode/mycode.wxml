@@ -1,0 +1,28 @@
+<!--pages/newTaskDetail/newTaskDetail.wxml-->
+<view class='wrap'>
+  <view class="list">
+    <view class='list1'>
+      <view>
+        <image mode='aspectFit' src='../../images/inviteCode.png'></image>
+      </view>
+    </view>
+    <view class='listBox'>
+      <view class='list2'>
+        <view>
+          <view class='myCode'>
+            <text bindtap='getCode'>{{myCode}}</text>
+          </view>
+          <view class='codeTips'>
+            <text>请区分好字母大小写哦~(点击自动复制)</text>
+          </view>
+        </view>
+      </view>
+      <view class='list4 clearfloat'>
+        <text class='list4Title'>温馨提示：</text>
+        <text class='list4text'>只要两位好友使用您的邀请码下单预约，您就能再获得一次免费名额哦！赶紧把邀请码分享给好友吧!</text>
+      </view>
+    </view>
+    <button class='share' bindtap='goHome' wx:if="{{ share == true }}">前往首页</button>
+    <button  open-type='share' class='share' send-message-title="双击666" wx:else>分享邀请码</button>
+  </view>
+</view>

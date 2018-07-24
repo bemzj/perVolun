@@ -1,0 +1,110 @@
+<!--pages/registerVolun/registerVolun.wxml-->
+
+<form bindsubmit="register">
+<view id='main'>
+  <view class='main'>
+    <view class='head'>
+      <image src='{{photo==""?headsrc:photo}}' mode='widthFix' ></image>
+      <!-- <view class='headText'>
+        <text wx:if='{{volunteerData.src==""}}'>添加头像</text>
+      </view> -->
+      <view class='headText' wx:if='{{photo==""}}' bindtap='getHead'>
+        <text >添加头像</text>
+      </view>  
+    </view>
+    <view class='tip'>请填写真实有效的信息</view>
+    
+    <view class='inputBox clearfloat'>
+      <view class='textLeft textLeft4'>
+        <text> 注册码</text>
+      </view>
+      <view class='inputRight'>
+        <input type='text' name="code" wx:if="{{isUpdate == false}}"></input>
+        <input type='text' value='{{myInfo.code.code}}' name="code"  wx:else disabled></input>
+      </view>
+    </view>
+    <view class='inputBox clearfloat'>
+      <view class='textLeft textLeft5'>
+        <text>服务中心号</text>
+      </view>
+      <view class='inputRight'>
+        <input type='number' name="number" value='{{myInfo.number}}' wx:if="{{isUpdate == false}}"></input>
+        <input type='number' value='{{myInfo.number}}' name="number"   wx:else disabled></input>
+      </view>
+    </view>
+    <view class='inputBox clearfloat'>
+      <view class='textLeft '>
+        <text>完美VIP卡号</text>
+      </view>
+      <view class='inputRight'>
+        <input type='vip' name="vip" wx:if="{{isUpdate == false}}"></input>
+        <input type='vip' name="vip" value='{{myInfo.vip}}' wx:else disabled></input>
+      </view>
+    </view>
+    <view class='inputBox clearfloat'>
+      <view class='textLeft textLeft2'>
+        <text>姓名</text>
+      </view>
+      <view class='inputRight'>
+        <input type='text' value='{{myInfo.name}}' name="name"></input>
+      </view>
+    </view>
+    <view class='inputBox clearfloat'>
+      <view class='textLeft textLeft3'>
+        <text>手机号码</text>
+      </view>
+      <view class='inputRight'>
+        <input type='number' value='{{myInfo.phone}}' name="phone"></input>
+      </view>
+    </view>
+    <view class='inputBox clearfloat'>
+      <view class='textLeft textLeft4'>
+        <text>身份证</text>
+      </view>
+      <view class='inputRight'>
+        <input type='idcard' value='{{myInfo.card}}' name="card"></input>
+      </view>
+    </view>
+            <view class='addressBoxs'>
+              <view class='addressBox'  wx:for='{{region}}' wx:key='index'>
+                <view class='inputBox clearfloat address' style='background-image:url("../../images/triangle.png")'>
+                  <picker mode="region" bindchange="bindRegionChange" data-index='{{index}}' value="item">
+                    <view class="picker">
+                      {{item.province}} {{item.city}} {{item.area}}
+                    </view>
+                  </picker>
+                </view>
+                <view class='inputBox subtraction' wx:if='{{region.length-1!=index}}' data-index='{{index}}' bindtap='subtractionAddress'>
+                  <view></view>
+                </view>
+                <view class='inputBox add' wx:else data-index='{{index}}' bindtap='addAddress'>
+                  <image src='../../images/add.png' mode='widthFix'></image>
+                </view> 
+              </view>
+            </view>    
+            <!-- <view class='tips'>*服务区域可多选</view> -->
+            <!-- <view class='nowRegister' bindtap='nowRegister'>立即登记</view> -->
+
+            <!-- <input type='idcard' name="service_area" value="beijing"></input> -->
+            <button class="nowRegister"  formType="submit">立即登记</button>
+        </view>
+    </view>
+</form>
+
+<!--弹窗-->
+<tips wx:if='{{tipStatus1}}'>
+  <text slot="tp1">{{popText1}}</text>
+  <view slot="confrim" bindtap='closeTip'>确定</view>
+</tips>
+<tips wx:if='{{tipStatus2}}'>
+  <text slot="tp1">{{popText1}}</text>
+  <view slot="confrim" style='width:48%;' bindtap='comfirmPop'>确定</view>
+  <view slot="cancel" style='width:48%;' bindtap='cancel'>取消</view>
+</tips>
+<view id='clipBox' wx:if='{{cbStatus}}' >
+  <scroll-view scroll-x = 'true' scroll-y = 'true' scroll-top='{{scrollTop}}' bindscroll='scroll'>
+    <image src='{{headSrc}}' mode='widthFix'></image>
+  </scroll-view>
+  <button catchtap='clipBtn'>裁剪图片</button>
+  <canvas wx:if='{{cbStatus}}' canvas-id="mycanvas" style="width: {{cWidth}}px;height: {{cHeight}}px;opacity: 0;display:{{display}}" ></canvas>
+</view>

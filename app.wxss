@@ -1,0 +1,18 @@
+/**app.wxss**/
+
+page {
+    min-height: 100%;
+}
+view {
+    box-sizing: border-box;
+}
+.clearfloat::after {
+    display: block;
+    clear: both;
+    content: "";
+    visibility: hidden;
+    height: 0;
+}
+.hoverBtn{
+  background-color: #89d9e2;
+}

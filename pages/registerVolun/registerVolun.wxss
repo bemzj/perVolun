@@ -1,0 +1,273 @@
+/* pages/registerVolun/registerVolun.wxss */
+
+page {
+    width: 100%;
+    height: 100%;
+}
+.tip{
+  width: 100%;
+  text-align: center;
+  font-size: 28rpx;
+  line-height: 40rpx;
+  margin-bottom: 10rpx;
+}
+#main {
+    width: 100%;
+    height: 100%;
+    background: no-repeat left top;
+    background-color: #eaf9fa;
+    background-size: 100% auto;
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAu4AAAGPBAMAAADxc0ibAAAAGFBMVEWt7vTO9fi98faz7/W28PbG9PjC8ve68fbRE7AgAAAH4klEQVR42uzSsQnDQBQEUbegQA0oUD8Kvgsw6PdfgpU5EJgBB75b5oUbDvtY9A92R+wewu6I3UPYHbF7CLsjdg9hd8TuIeyO2D2E3RG7h7A7YvcQdkfsHsLuiN1D2B2xewi7I3YPYXfE7iHsjtg9hN0Ru4ewO2L3EHZH7B7C7ojdQ9gdsXsIuyN2D2F3xO4h7I7YPYTdEbuHsDti9xB2R+wewu6I3UPYHbF7CLsjdg9hd8TuIeyO2D2E3RG7h7A7YvcQdkfsHsLuiN1D2B2xewi7I3YPYXfE7iHsjtj95qiqvmwfe/d5rccyrom7Vz37tX219zlo/Sm7H9W9cV21jGa27mvdPo70YL+fqPu6Pnv7wX4OlH6S7m/yzS03cSCIoiX1CvLBBqyZ+NdSeQXjlrICsgQWELXk7Y8JN7QMxjR2P6o6x+Ih8uHocH27DGaKeQPqUK/A+9HHPIZ6GV0v3Ducx0VC6Onvm1SOn/MVtKrQUyNS/K3z6szTdNi9ieJwWHRemXlqJIlfn85rMk+NFPEho2I95qmRID58bKnFPDVFxaNaSvJeZKqE9yJTzeE8tQighHkqsvNLm8shv3nKvm9pzoucw8J7xpI/yOiW0uYp4+EmWHp289TMSDpVHSVLz2yecq0wAju9pHl4T9ry0vtlzimLeUp+Cqcm6lknO0p+8qwo6hk/PaC0Oz58Njp5TzxUU7od6yuYjEsspdqxhrGx4BJLSXpOccFkKnp6+p6/vudqrCesG0pwtc9Bda3nCT1Fvr6whlrPEXqKel2tzmk9MPRR1dOru38sv65aD1nq8nn31/P/6P811uOqp33/xul0+T1LfYvpivry3sFX62xvJz7Gcfxqqud0FOG9dXxLb8+ME80do7OWz3y/UY1OMFsX9N5aXgNvws9x4CzfYD+0HiGYrYt4Hy0H0w+P/vDRKOUd7jN7dwO/AAFewGoNPUbrbN59wYRb95iqzG+QT6kLBnQEVtT3qs1f5mpM1Ym8tyiYYGiRyjJ/5fIz/cOS7+Px8jNzSh51hD3QvNoVdvXkchJ9A0WOerh2UM9sE8Bm7z7q4dAT6qv5yN5bO3Bc7cDUXzYbvaNfNkBh/LbIh3lvneVNdBTOb4q8o4TSoX2betvUixv4mfcRnZ5BO6i+a9qzUQoIekbtoOauccwr3kdnB94H7cNU2TUOVmlRueX9UASMrevrq3ZgQP61cRIO40K0X1Lf21rsO75CPEeY9gkGir8U9GFf8i5TOxF7LuHXqd8xp/beUVQM3zGFX1f3/Bn4mXdp2id4mV5L97SWOci7LO2I/DIKFl438AveBWmf4Gf0UrOPsCf2TqkwHIK86E/NvsW7FO0THIq1cpJvmbd6L94xPvLBCLkODWHf6l2G9vDIS3FvmTN4pwwYfpG+XOe0A+/1LiLsMN9x4FY49o55p3cpYQe8gT6neoQ9hnchYQfMHT+/scH2o77Jh2OO4F1Q2K81b/jZ7R6bIfQIe4B3ZWGH+QDx/mHaMobeBSRVp/XA0QaVMyfAfMKwA9Jq/ZtH5Y6Y4yme+REn6RrrOATS1esLQyUv3nhGvsy3Q6A5zdYnjOEHmMn29c6H37BJaN4Fu9MsfaXnzU3Q4d8wwHVR+cMOSF+pB5hfUg4w36SIvONwSLtzwI/o7tsnfuQR9kTeDYlmyXnnn2KIB13syLtXa1pXma/C3Wx7vOTOIp8q7OFGVTTKGoaWHCP25hp7H/lI4p3isSTBuRSbx1Xv+bfb+qB5HIyIN97hHi+Y+SGAh33iW6t7DE+Qet8mxtdO5MQ77ac/0YFySEe2ZyWEY2CHeDeoP+38z84dpiYMBAEYXZgLBSL0APVE/ZPrF2xKmrDSqSbdrLyHeIAvw6gL6xGW6Y7lffUs4pmJn967PmM5VsyVl9Dzal89g49Hqnd+tnW8n5t92Kz6qHyPz22Yrk9y/83md+wibq9LPvl8c133vM2WH5ZP2Xz46RZd90fjr49rxvEt0/zraqnuux0e18PXrznqvodhGGeXau9pun4X1/0YcV1bFrnuxxrrdD9ajDW6b3UavpDZNbpX9TfyhczI635PZyNfyIy87vd1Vb6QKa/7L3pZ84VMed0Tetg2hQTd006+bgpZuqedd+gLf9Hj3zm8Ct2zTpi+8JjQPelU6QtPCd3TzrDtC7vQvZ3QvZnQvZ3QvZ3QvSHdGwrdGwrdWwrdAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIDPduwoxUEgCMLwQl2ooO5/twV3YGaajvhgZMH/k36Ijj5Uhk4bAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMB/leQHD8ofcn+I8ofcHzEDJ/eHpNB+kPvN1OZNn/kWpah5ay1y/1ZD8Z63Emcpcr9rg3skPmkJOmvo9JkbNrhT6Kh5ycwz93ZwH0e/wQf13wnzzAVq43bNtN/gjrY7HMX8rl7Nux8JfZTWC0rBe9NlKZTKZ5fU3e9lOfPMLoVPRnA53k51kZc7zX7f5DL36XrU4O3QuCb6zJBKW2KzRcz+7bJ+LClrC9HfPwwon7k/6Wh27IZnjc96b+46aeA1r5nVzFduNvQ8PahU9NZ5Rmd/oVSadfBoJ05PqVyf4ehVuady94pZtBOKRy1Jzmcta/Xq+T3n6iR90Uz80qpEOfML7AxXB4lpUs4AAAAASUVORK5CYII=');
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    display: -webkit-flex;
+    -webkit-align-items: center;
+    -webkit-justify-content: center;
+    -webkit-flex-direction: column;
+}
+.main {
+    width: 87%;
+    background-color: white;
+    padding: 80rpx 45rpx 50rpx;
+    border-radius: 5rpx;
+    position: relative;
+    margin-top: 20rpx;
+}
+.head {
+    position: absolute;
+    width: 122rpx;
+    height: 122rpx;
+    border-radius: 50%;
+    overflow: hidden;
+    left: 50%;
+    margin-left: -61rpx;
+    top: -61rpx;
+}
+.headText {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    display: -webkit-flex;
+    -webkit-align-items: center;
+    -webkit-justify-content: center;
+    -webkit-flex-direction: column;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    font-size: 24rpx;
+    color: white;
+}
+.head image {
+    width: 100%;
+}
+.inputBox {
+    width: 100%;
+    border: 1px solid #e3e7e7;
+    border-radius: 5rpx;
+    box-shadow: 2rpx 4rpx 16rpx rgba(222, 222, 222, 0.43);
+    margin-bottom: 30rpx;
+}
+.inputBox>view {
+    float: left;
+}
+.textLeft {
+    width: 32%;
+    margin-left: 7%;
+    font-size: 28rpx;
+    line-height: 76rpx;
+    position: relative;
+}
+.textLeft1 text {
+    letter-spacing: 8rpx;
+}
+.textLeft2 text {
+    letter-spacing:100rpx;
+    width:145%;
+    display: block;
+}
+.textLeft3 text {
+    letter-spacing: 14rpx;
+}
+.textLeft4 text {
+    width: 110%;
+    display: block;
+    letter-spacing: 34rpx;
+}
+.textLeft5 text {
+    letter-spacing: 4rpx;
+}
+.textLeft::after {
+    position: absolute;
+    content: "：";
+    top: 0;
+    line-height: 76rpx;
+    right: 0rpx;
+}
+.textLeft::before {
+    position: absolute;
+    content: "*";
+    top: 0;
+    line-height: 76rpx;
+    right: 102%;
+}
+.inputRight {
+    width: 61%;
+    font-size: 28rpx;
+    height: 76rpx;
+}
+.inputRight input {
+    width: 100%;
+    height: 100%;
+}
+.address {
+    height: 76rpx;
+    line-height: 76rpx;
+    width: 84%;
+    background: no-repeat 94% center;
+    background-size: 18rpx auto;
+}
+.address .picker {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    display: -webkit-flex;
+    -webkit-align-items: center;
+    -webkit-justify-content: center;
+    -webkit-flex-direction: column;
+    font-size: 28rpx;
+}
+.addressBox {
+    position: relative;
+}
+.add {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 76rpx;
+    height: 76rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    display: -webkit-flex;
+    -webkit-align-items: center;
+    -webkit-justify-content: center;
+    -webkit-flex-direction: column;
+}
+.subtraction {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 76rpx;
+    height: 76rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    display: -webkit-flex;
+    -webkit-align-items: center;
+    -webkit-justify-content: center;
+    -webkit-flex-direction: column;
+}
+.subtraction view {
+    width: 60%;
+    margin: 0 auto;
+    height: 14rpx;
+    border-radius: 14rpx;
+    background-color: red;
+}
+.addressBoxs {
+    max-height: 240rpx;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+}
+.add image {
+    width: 70%;
+}
+.tips {
+    width: 100%;
+    text-align: center;
+    font-size: 18rpx;
+    color: #cbcbcb;
+    margin-bottom: 20rpx;
+}
+.nowRegister {
+    width: 100%;
+    line-height: 85rpx;
+    font-size: 30rpx;
+    color: white;
+    text-align: center;
+    background-color: #93e9f3;
+    border-radius: 10rpx;
+}
+#clipBox{
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    display: -webkit-flex;
+    -webkit-align-items: center;
+    -webkit-justify-content: center;
+    -webkit-flex-direction: column;
+}
+#clipBox{
+  position: fixed;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height:100%;
+  z-index: 100;
+  /* background-color: #333333; */
+  background-color: #cef5f8;
+  display: flex;  
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  display: -webkit-flex;
+  -webkit-align-items: center;
+  -webkit-justify-content: center;
+  -webkit-flex-direction: column;
+}
+#clipBox>scroll-view{
+  width: 600rpx;
+  height: 600rpx;
+  font-size:0rpx;  
+}
+#clipBox>button{
+  margin-top: 40rpx;
+  width: 420rpx;
+  line-height:85rpx;
+  font-size:30rpx;
+  color:white;
+  text-align:center;
+  background-color:#93e9f3;
+  border-radius:10rpx;
+}
+#clipBox>scroll-view image{
+  width: 100%;
+  font-size:0;
+}
+canvas{
+ position: fixed;
+ top: 80%;
+ left: 0;
+}
+#topshow{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 300rpx;
+  font-size: 0rpx;
+  z-index: 999;
+}

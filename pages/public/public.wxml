@@ -1,0 +1,13 @@
+<!-- 弹窗模板 -->
+<view class="tipsBox wrapper">
+  <view class='tips'>
+    <image src='../../images/popBack.png'></image>
+    <view class='tipsIn'>
+      <slot name='tp1'></slot>
+      <view class='btnBox clearfloat'>
+        <slot name="confrim"></slot>
+        <slot name="cancel"></slot>
+      </view>
+    </view>
+  </view>
+</view>

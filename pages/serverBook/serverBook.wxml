@@ -1,0 +1,167 @@
+<!--pages/serverBook/serverBook.wxml-->
+<view id='main'>
+  <view class='banner'>
+    <swiper style='height:{{swiperHeight}}' indicator-dots="{{swiper.indicatorDots}}" autoplay="{{swiper.autoplay}}" interval="{{swiper.interval}}" duration="{{swiper.duration}}" circular="{{swiper.circular}}" indicator-color="#ffffff" indicator-active-color="#fcee23">
+      <swiper-item wx:for="{{bottomBanners}}" wx:key='key'>
+        <image src="{{hostImg + item}}" mode='widthFix'></image>
+      </swiper-item>
+    </swiper>
+  </view>
+  <view class='productDetails'>
+    <view class='title'>
+      <text>服务产品详情</text>
+      <view></view>
+    </view>
+    <view class='content'>
+      <image src='{{produceDetails}}' mode='widthFix'></image>
+    </view>
+    <button class='nowBook' bindtap='showAddress'>马上预约</button>
+  </view>
+</view>
+
+<!--预约弹窗-->
+<view id='bookPop' class='{{serverStatus==0?"tsDisplay":""}}'>
+  <view class='bookPop'>
+    <form bindsubmit="addOrder">
+      <view class='inputBox clearfloat'>
+        <view>
+          <text>服务事项：</text>
+        </view>
+        <view style='background-image:url("../../images/triangle.png")'>
+          <picker bindchange="styleChange" value="{{style}}" range="{{bookStyle}}">
+            <view class="picker">
+              {{bookStyle[style]}}
+            </view>
+          </picker>
+        </view>
+      </view>
+      <view class='inputBox clearfloat'>
+        <view>
+          <text>预约时间：</text>
+        </view>
+        <view style='background-image:url("../../images/triangle.png")'>
+          <text class='timeBox' bindtap='showSelect'>{{year}}年{{month}}月{{day}}日{{time}}-{{time+2}}时</text>
+        </view>
+      </view>
+      <view class='inputBox clearfloat'>
+        <view>
+          <text>区域选择：</text>
+        </view>
+        <view style='background-image:url("../../images/triangle.png")'>
+          <picker bindchange="regionChange" mode="region" value="{{region}}">
+            <view class="picker">
+              {{region[0]}} {{region[1]}} {{region[2]}}
+            </view>
+          </picker>
+        </view>
+      </view>
+      <view class='detailsAddress'>
+        <input type='text' placeholder="详细地址" placeholder-class='placeholder' name="details_address" value='{{detailAddress}}'></input>
+      </view>
+      <view class='inputBox clearfloat'>
+        <view>
+          <text class='full'>姓名:</text>
+        </view>
+        <view>
+          <input type='text' name="name"></input>
+        </view>
+      </view>
+      <view class='inputBox clearfloat'>
+        <view>
+          <text class='full'>手机:</text>
+        </view>
+        <view>
+          <input type='number' name="phone"></input>
+        </view>
+      </view>
+      <view class='inputBox clearfloat'>
+        <view>
+          <text class='full1'>邀请码:</text>
+        </view>
+        <view>
+          <input type='text' name="code"></input>
+        </view>
+      </view>
+      <button class='comBtn' formType="submit" hover-class="hoverBtn">确认预约</button>
+      <!-- <button class='comBtn' bindtap='comfirmBook'>确认预约</button> -->
+    </form>
+  </view>
+  <view class='closeAddress' bindtap='closeAddresses'>
+    <image src='../../images/close.png' mode='widthFix'></image>
+  </view>
+</view>
+
+<!--时间弹窗-->
+<view id='timeSelect' class='{{tsStatus==0?"tsDisplay":""}}'>
+  <view>{{year}}年{{month}}月{{day}}日{{time}}-{{time+2}}时</view>
+  <picker-view indicator-style="height: 50px;" style="width: 100%; height: 300px;" value="{{value}}" bindchange="bindChange">
+    <picker-view-column>
+      <view wx:for="{{years}}" wx:key="" style="line-height: 50px;text-align:center;">{{item}}年</view>
+    </picker-view-column>
+    <picker-view-column>
+      <view wx:for="{{months}}" wx:key="" style="line-height: 50px;text-align:center;">{{item}}月</view>
+    </picker-view-column>
+    <picker-view-column>
+      <view wx:for="{{days}}" wx:key="" style="line-height: 50px;text-align:center;">{{item}}日</view>
+    </picker-view-column>
+    <picker-view-column>
+      <view wx:for="{{times}}" wx:key="" style="line-height: 50px;text-align:center;">{{item}}时开始</view>
+    </picker-view-column>
+  </picker-view>
+  <view class='comfirm' bindtap='closeSelect'>确定</view>
+</view>
+
+<!--弹窗-->
+<tips wx:if='{{tipStatus1}}'>
+  <text slot="tp1">{{popText1}}</text>
+  <view slot="confrim" bindtap='closeTip'>确定</view>
+</tips>
+<tips wx:if='{{tipStatus2}}'>
+  <text slot="tp1">{{popText1}}</text>
+  <view slot="confrim" style='width:48%;' bindtap='comfirmPop'>确定</view>
+  <view slot="cancel" style='width:48%;' bindtap='cancel'>取消</view>
+</tips>
+<!--义工推荐-->
+<view id='volunPop' wx:if ="{{vp}}">
+  <view class='volunPop'>
+    <view class='volunTitle'>
+      <text>为您推荐的义工：</text>
+    </view>
+    <view class='swiperBox clearfloat'>
+      <swiper interval="5000" duration="500" current="{{spIndex}}" display-multiple-items="3" circular="true" bindchange="changes" wx:if="{{volunSrc.length>3}}">
+        <block wx:for="{{volunSrc}}" wx:key='index'>
+          <swiper-item data-index="{{index}}" bindtap='confrimVol'>
+            <image src="{{host + item.photo}}" mode='widthFix'></image>
+            <text class='volName'>{{item.name}}</text>
+            <text class='volId'>编号：{{item.number}}</text>
+          </swiper-item>
+        </block>
+      </swiper>
+
+      <view class='sBoxes'  wx:for="{{volunSrc}}" wx:key='index' wx:if="{{volunSrc.length<=3}}" data-index="{{index}}" bindtap='confrimVol'>
+          <image src="{{host + item.photo}}" mode='widthFix'></image>
+          <text class='volName'>{{item.name}}</text>
+          <text class='volId'>编号：{{item.number}}</text>
+      </view> 
+      <view class='left' bindtap='leftTap' wx:if="{{volunSrc.length>3}}">
+        <image src='../../images/left.png' mode='widthFix'></image>
+      </view>
+      <view class='right' bindtap='rightTap' wx:if="{{volunSrc.length>3}}">
+
+        <image src='../../images/left.png' mode='widthFix'></image>
+      </view>
+    </view>
+    <view class='myVolun'>
+      <text>我的义工：</text>
+      <view class='myVolunBox'>
+          <image src="{{host + myvolunteer.photo}}" mode='widthFix'></image>
+          <text class='volName'>{{myvolunteer.name}}</text>
+          <text class='volId'>编号：{{myvolunteer.number}}</text>
+      </view>
+    </view>
+    <view class='tBtns clearfloat'>
+      <view bindtap='randomVol'>随机分配</view>
+      <view bindtap='cVolunteer'>确定</view>
+    </view>
+  </view>
+</view>

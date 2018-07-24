@@ -1,0 +1,79 @@
+<!--pages/newTaskDetail/newTaskDetail.wxml-->
+<!--暂无新情况 -->
+<view class='wrap' >
+  <view class="list" wx:if="{{user_type=='U'&&!detailData}}">
+    <view class='list1'>
+      <view>
+        <image mode='aspectFit' src='../../images/tipTitles.png'></image>
+      </view>
+    </view>
+    <view class='list2' >
+      <view>
+        <view>
+          <view class='noNewDetails'>
+            <text>{{noNewDetails}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="list" wx:if="{{detailData}}">
+    <view class='list1'>
+      <view>
+        <image mode='aspectFit' src='../../images/bookTitle.png'></image>
+      </view>
+    </view>
+    <view class=" {{user_type=='U'&&bookStatus==1||user_type=='U'&&bookStatus==3?'listBkg':''}}">
+      <view class='list2'>
+        <view>
+          <view>
+            <view class='name'>
+              <text wx:if="{{ user_type == 'V' }}">{{detailData.name}}</text>
+              <text wx:else>{{detailData.v_id.name}}</text>
+            </view>
+            <view>
+              <text>联系电话：</text>
+              <text wx:if="{{ user_type == 'V' }}">{{detailData.phone}}</text>
+              <text wx:else>{{detailData.v_id.phone}}</text>
+            </view>
+            <view>
+              <text>预约时间：</text>
+              <text>{{detailData.service_time.service}}</text>
+            </view>
+            <view>
+              <text>服务地址：</text>
+              <text>{{detailData.service_address}}</text>
+            </view>
+            <view>
+              <text>服务事项：</text>
+              <text>{{detailData.service_matters}}</text>
+            </view>
+            <view class='serverSuccess' bindtap='serveComplete' wx:if="{{user_type=='U'&&bookStatus==1}}">服务完成</view>
+          </view>
+        </view>
+      </view>
+      <view class='list4' wx:if="{{user_type=='U'&&bookStatus==1||user_type=='U'&&bookStatus==3}}">
+        <text class='list4Title'>————温馨提示————</text>
+        <text class='list4text'>{{tipsText}}</text>
+      </view>
+    </view>
+    <view class='list3' wx:if='{{user_type == "V"}}'>
+      <view bindtap='refuse'>
+        <text>拒绝</text>
+      </view>
+      <view bindtap='accept'>
+        <text>接受</text>
+      </view>
+    </view>
+  </view>
+</view>
+<!--弹窗-->
+<tips wx:if='{{tipStatus1}}'>
+  <text slot="tp1">{{popText1}}</text>
+  <view slot="confrim" bindtap='closeTip'>确定</view>
+</tips>
+<tips wx:if='{{tipStatus2}}'>
+  <text slot="tp1">{{popText1}}</text>
+  <view slot="confrim" style='width:48%;' bindtap='comfirmPop'>确定</view>
+  <view slot="cancel" style='width:48%;' bindtap='cancel'>取消</view>
+</tips>

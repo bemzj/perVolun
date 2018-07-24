@@ -1,0 +1,14 @@
+<!--pages/newTask/newTask.wxml-->
+<!--新任务  -->
+<block wx:if='{{status == 0}}'>
+  <view class='wrap'>
+    <view class='list' wx:for='{{newTask}}' wx:for-index='idx' wx:for-item='item' wx:key='{{idx}}'>
+      <view>
+        <text>您有新的任务{{idx+1}}~</text>
+      </view>
+      <view data-to='/pages/newTaskDetail/newTaskDetail?user_type=V&orderId={{item}}' bindtap='navTo'>
+        <text>查看</text>
+      </view>
+    </view>
+  </view>
+</block>

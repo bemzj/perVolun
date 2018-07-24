@@ -1,0 +1,33 @@
+<!--pages/completed/completed.wxml-->
+<view class='wrap'>
+  <view class='list' wx:for='{{dataList}}' wx:for-index='idx' wx:for-item='item' wx:key='{{idx}}'>
+    <view>
+      <view>
+        <image mode='scaleToFill' src='{{item.avatarurl}}'></image>
+      </view>
+      <view>
+        <view>
+          <text>{{item.name}}</text>
+        </view>
+        <view>
+          <text>{{item.service_time.date}}</text>
+        </view>
+      </view>
+    </view>
+    <view bindtap='{{item.urge == true?"warn":""}}' data-index='{{idx}}'>
+      <icon wx:if='{{item.urge == true}}' class='icon2' ></icon>
+      <icon wx:else class='icon1'></icon>
+      <text>提醒评价</text>
+    </view>
+  </view>
+</view>
+<!--弹窗-->
+<tips wx:if='{{tipStatus1}}'>
+  <text slot="tp1">{{popText1}}</text>
+  <view slot="confrim" bindtap='closeTip'>确定</view>
+</tips>
+<tips wx:if='{{tipStatus2}}'>
+  <text slot="tp1">{{popText1}}</text>
+  <view slot="confrim" style='width:48%;' bindtap='comfirmPop'>确定</view>
+  <view slot="cancel" style='width:48%;' bindtap='cancel'>取消</view>
+</tips>

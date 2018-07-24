@@ -1,0 +1,46 @@
+<!--index.wxml-->
+<view class="container">
+  <view class='main'>
+    <view class='bannerAndChoice'>
+      <!--四个选项-->
+      <view class='choice clearfloat'>
+        <view class='choiceOut' wx:for='{{btns}}' wx:key="">
+          <!-- <navigator class='choiceIn' url='{{item.link}}'>
+            <view>
+              <image src='{{item.url}}' mode='widthFix'></image>
+            </view>
+            <text>{{item.name}}</text>
+          </navigator> -->
+          <navigator class='choiceIn' url="{{item.link}}" bingtap='{{item.click}}'>
+            <view>
+              <image src='{{item.url}}' mode='widthFix'></image>
+            </view>
+            <text>{{item.name}}</text>
+          </navigator>
+        </view>
+      </view>
+      
+      <!--轮播图 -->
+      <view class='banner'>
+        <swiper style='height:{{swiperHeight}}' indicator-dots="{{swiper.indicatorDots}}" autoplay="{{swiper.autoplay}}" interval="{{swiper.interval}}" duration="{{swiper.duration}}" circular="{{swiper.circular}}" bindchange='swiperChange'>
+            <swiper-item  wx:for="{{bottomBanners}}" wx:key='key'>
+              <image src="{{host + item}}" mode='widthFix'></image>
+            </swiper-item>
+        </swiper>
+        <view class='swiperNav'>
+          <view wx:for="{{bottomBanners}}" wx:key='' class='{{count==index?"swiperActive":""}}'></view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<!--弹窗-->
+<tips wx:if='{{tipStatus1}}'>
+  <text slot="tp1">{{popText1}}</text>
+  <button slot="confrim"  open-type="getUserInfo" bindgetuserinfo='closeTip'>确定</button>
+</tips>
+<tips wx:if='{{tipStatus2}}'>
+  <text slot="tp1">{{popText1}}</text>
+  <view slot="confrim" style='width:48%;' bindtap='comfirmPop'>确定</view>
+  <view slot="cancel" style='width:48%;' bindtap='cancel'>取消</view>
+</tips>

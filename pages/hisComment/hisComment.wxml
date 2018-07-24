@@ -1,0 +1,87 @@
+<!--pages/completed/completed.wxml-->
+<view class='wrap' wx:if="{{ load == true }}">
+  <view class='list' wx:for='{{dataList}}' wx:for-index='idx' wx:for-item='item' wx:key='{{idx}}'>
+    <view>
+      <view class='head'>
+        <image mode='scaleToFill' src='{{host + item.v_id.photo}}' wx:if="{{user_type == 'U'}}"></image>
+        <image mode='scaleToFill' src='{{item.avatarurl}}' wx:else></image>
+      </view>
+      <view class='msg'>
+        <view>
+          <text>{{item.v_id.name}}</text>
+        </view>
+        <view>
+          <text>{{item.service_time.date}}</text>
+        </view>
+        <view wx:if="{{item.evaluate.status!=0}}">
+          <text>{{item.comment==""?"暂无评价":item.comment}}</text>
+        </view>
+        <view class='starAndText' wx:if="{{item.evaluate.status!=0}}">
+          <view class='starBox'>
+            <view wx:for='{{5}}' wx:key="{{index}}" wx:for-item='items'>
+              <image wx:if="{{index<item.evaluate.status}}" src='../../images/star01.png' mode='widthFix'></image>
+              <image wx:else src='../../images/star02.png' mode='widthFix'></image>
+            </view>
+          </view>
+          <view class='starText'>
+            <text>已评价</text>
+          </view>
+        </view>
+        <view class='comments' wx:else>
+          <view class='hasTips' wx:if="{{item.urge == 1}}" data-index='{{idx}}' bindtap='showComment'>
+            <text>义工邀请评价提醒</text>
+          </view>
+          <view class='noTips' wx:else data-index='{{idx}}' bindtap='showComment'>
+            <text>去评价</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<view id='popComment' wx:if='{{commentShow}}'>
+  <form bindsubmit="comfrimComment">
+    <view class='popComment'>
+      <view class='commentMsg'>
+        <view class='msgHead'>
+          <image src='{{host + currentVolunteer.v_id.photo}}' mode='widthFix'></image>
+        </view>
+        <view class='msgRight'>
+          <view class='msgName'>{{currentVolunteer.v_id.name}}</view>
+          <view class='msgId'>义工编号：{{currentVolunteer.v_id.number}}</view>
+        </view>
+      </view>
+      <view class='starComment clearfloat'>
+        <text>总体评价：</text>
+        <view class='starBoxes'>
+          <view wx:for='{{5}}' wx:key='index' data-index='{{index+1}}' bindtap='selectLevel'>
+            <image class='starUp' wx:if='{{index<starLevel}}' src='../../images/star01.png' mode='widthFix'></image>
+            <image  src='../../images/star02.png' mode='widthFix'></image>
+          </view>
+        </view>
+      </view>
+      <view class='commentStatus'>
+        <text>({{commentLevel[starLevel]}})</text>
+      </view>
+      <view class='comArea'>
+        <textarea wx:if='{{hideText}}' placeholder='请写下您对义工的评价吧~' name="comment"></textarea>
+      </view>
+      <view class='comfirmBtn'>
+        <button formType="submit">确定</button>
+      </view>    
+    </view>
+    <view class='closeComment' bindtap='closeComment'>
+      <image src='../../images/close.png' mode='widthFix'></image>
+    </view>
+  </form>
+</view>
+<!--弹窗-->
+<tips wx:if='{{tipStatus1}}'>
+  <text slot="tp1">{{poptext1}}</text>
+  <view slot="confrim" bindtap='closeTip'>确定</view>
+</tips>
+<tips wx:if='{{tipStatus2}}'>
+  <text slot="tp1">{{poptext2}}</text>
+  <view slot="confrim" style='width:48%;' bindtap='comfirmPop'>确定</view>
+  <view slot="cancel" style='width:48%;' bindtap='cancel'>取消</view>
+</tips>

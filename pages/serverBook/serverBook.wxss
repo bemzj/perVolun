@@ -1,0 +1,314 @@
+/* pages/serverBook/serverBook.wxss */
+
+page {
+    background-color: #eaeaea;
+}
+#main {
+    width: 100%;
+}
+#main image {
+    width: 100%;
+}
+.productDetails {
+    background-color: #e2f7fa;
+    margin-top: 10rpx;
+    padding-bottom: 115rpx;
+}
+.title {
+    padding: 40rpx 0 30rpx;
+}
+.title text {
+    font-size: 26rpx;
+    line-height: 50rpx;
+    text-align: center;
+    color: #0b0b0b;
+    display: block;
+    width: 100%;
+}
+.title view {
+    display: block;
+    width: 170rpx;
+    border-bottom: 6rpx solid #7ce6f4;
+    margin: 0 auto;
+}
+.content {
+    width: 79.33%;
+    margin: 0 auto;
+}
+.content image {
+    width: 100%;
+}
+.nowBook {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    line-height: 115rpx;
+    font-size: 36rpx;
+    text-align: center;
+    background-color: #adeef2;
+    margin-top: 40rpx;
+    border-radius: 0;
+}
+#bookPop {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    display: -webkit-flex;
+    -webkit-align-items: center;
+    -webkit-justify-content: center;
+    -webkit-flex-direction: column;
+}
+.bookPop {
+    width: 89%;
+    box-sizing: border-box;
+    padding: 50rpx 55rpx;
+    background-color: white;
+    border-radius: 18rpx;
+}
+.inputBox {
+    margin-bottom: 20rpx;
+}
+.inputBox>view {
+    float: left;
+}
+.inputBox input {
+    width: 90%;
+    margin: 0 auto;
+    height: 100%;
+}
+.inputBox>view:nth-child(1) {
+    width: 30%;
+    font-size: 26rpx;
+    line-height: 72rpx;
+}
+.inputBox>view:nth-child(2) {
+    width: 70%;
+    font-size: 24rpx;
+    height: 72rpx;
+    box-sizing: border-box;
+    border: 1px solid #efefef;
+    border-radius: 8rpx;
+    background: no-repeat 95% center;
+    background-size: 19rpx;
+    box-shadow: 2rpx -6rpx 20rpx rgba(222, 222, 222, 0.43);
+}
+.timeBox {
+    width: 92%;
+    display: block;
+    margin: 0 auto;
+    height: 100%;
+    line-height: 70rpx;
+}
+.detailsAddress {
+    width: 100%;
+    font-size: 28rpx;
+    height: 72rpx;
+    box-sizing: border-box;
+    border: 1px solid #efefef;
+    box-shadow: 2rpx -6rpx 20rpx rgba(222, 222, 222, 0.43);
+    margin-bottom: 20rpx;
+}
+.detailsAddress input {
+    width: 92%;
+    margin: 0 auto;
+    height: 100%;
+}
+.placeholder {
+    text-align: center;
+    color: #d2d2d2;
+    letter-spacing: 14rpx;
+}
+.inputBox>view:nth-child(1) .full {
+    letter-spacing: 34rpx;
+}
+.inputBox>view:nth-child(1) .full1 {
+    letter-spacing: 14rpx;
+    position: relative;
+}
+.inputBox>view:nth-child(1) .full1::after {
+    content: "（可不填）";
+    position: absolute;
+    top: 18rpx;
+    left: 7rpx;
+    font-size: 20rpx;
+    color: #b5b5b5;
+    letter-spacing: 0rpx;
+}
+.picker {
+    width: 90%;
+    margin: 0 auto;
+    line-height: 70rpx;
+}
+#timeSelect {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    display: -webkit-flex;
+    -webkit-align-items: center;
+    -webkit-justify-content: center;
+    -webkit-flex-direction: column;
+}
+.tsDisplay {
+    display: none !important;
+}
+.comfirm {
+    width: 500rpx;
+    margin: 0 auto;
+    text-align: center;
+    background-color: #93e9f3;
+    border-radius: 8rpx;
+    color: white;
+    font-size: 30rpx;
+    line-height: 84rpx;
+}
+.comBtn {
+    width: 100%;
+    line-height: 84rpx;
+    border-radius: 8rpx;
+    font-size: 30rpx;
+    color: white;
+    background-color: #93e9f3;
+    text-align: center;
+    margin-top: 40rpx;
+}
+.closeAddress {
+    width: 64rpx;
+    margin-top: 20rpx;
+}
+.closeAddress image {
+    width: 100%;
+}
+#volunPop {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 11;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    display: -webkit-flex;
+    -webkit-align-items: center;
+    -webkit-justify-content: center;
+    -webkit-flex-direction: column;
+}
+.volunPop {
+    width: 88.8%;
+    padding: 60rpx 9.4% 70rpx;
+    border-radius: 20rpx;
+    background: no-repeat left bottom;
+    background-size: 100% auto;
+    background-color: white;
+    background-image: url('data:image/png;base64,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');
+}
+.swiper-item {
+    width: 100%;
+    font-size: 0;
+}
+.volunPop image {
+    width: 94%;
+    margin-left: 3%;
+}
+.swiperBox {
+    position: relative;
+}
+.left {
+    position: absolute;
+    right: 101%;
+    top: 20%;
+    width: 24rpx;
+    font-size: 0px;
+}
+.left image {
+    width: 100%;
+}
+.right {
+    position: absolute;
+    left: 101%;
+    top: 20%;
+    width: 24rpx;
+    font-size: 0px;
+    transform: rotate(180deg);
+}
+.volName {
+    font-size: 24rpx;
+    display: block;
+    width: 100%;
+    text-align: center;
+    color: #535353;
+    line-height: 45rpx;
+}
+.volId {
+    font-size: 18rpx;
+    display: block;
+    width: 100%;
+    text-align: center;
+    color: #b5b5b5;
+}
+.volunTitle {
+    font-size: 28rpx;
+    color: #393a38;
+    line-height: 60rpx;
+}
+.myVolun {
+    font-size: 28rpx;
+    color: #393a38;
+}
+.myVolunBox {
+    width: 31.333%;
+}
+.myVolunBox image {
+    font-size: 0rpx;
+    width: 100%;
+}
+.myVolun>text {
+    display: block;
+    padding-bottom: 20rpx;
+}
+.tBtns {
+    width: 100%;
+}
+.tBtns view {
+    width: 48%;
+    line-height: 85rpx;
+    text-align: center;
+    border-radius: 8rpx;
+    margin-top: 35rpx;
+    font-size: 30rpx;
+}
+.tBtns view:nth-child(1) {
+    background: white;
+    float: left;
+    color: #93e9f3;
+    box-shadow: 1rpx -2rpx 4rpx rgba(63, 140, 244, 0.14);
+}
+.tBtns view:nth-child(2) {
+    float: right;
+    background-color: #93e9f3;
+    color: white;
+}
+.sBoxes{
+  width: 33.3333%;
+  margin-bottom: 40rpx;
+  float: left;
+}

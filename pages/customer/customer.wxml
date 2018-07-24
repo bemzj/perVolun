@@ -1,0 +1,25 @@
+<!--pages/completed/completed.wxml-->
+<view class='wrap'>
+  <view class='list' wx:for='{{dataList}}' wx:for-index='idx' wx:for-item='item' wx:key='{{idx}}'>
+    <view>
+      <view class='head'>
+        <image mode='scaleToFill' src='{{item.avatarurl}}'></image>
+      </view>
+      <view class='msg'>
+        <view>
+          <text>{{item.name}}</text>
+        </view>
+        <view>
+          <text>电话：{{item.phone}}</text>
+        </view>
+        <view>
+          <text>地址：{{item.service_address + item.details_address}}</text>
+        </view>
+        <view class='serverTime'>
+          <text>服务时间：{{item.service_time.date}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+

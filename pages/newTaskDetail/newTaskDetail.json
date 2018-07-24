@@ -1,0 +1,8 @@
+{
+    "navigationBarTitleText": "",
+    "navigationBarBackgroundColor": "#cef5f8",
+    "usingComponents": {
+        "tips": "../public/public",
+        "tips1": "../public/public"
+    }
+}

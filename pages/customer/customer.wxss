@@ -1,0 +1,61 @@
+
+page {
+    width: 100%;
+    height: 100%;
+}
+.wrap {
+    width: 100%;
+    padding: 50rpx 0 10rpx;
+    min-height: 100%;
+    background-color: #eaf9fa;
+}
+.list {
+    width: 85%;
+    background-color: #ffffff;
+    margin: auto;
+    box-shadow: 0 5px 10px rgba(222, 222, 222, 0.4);
+    margin-bottom: 40rpx;
+    position: relative;
+}
+.list>view {
+    text-align: center;
+    padding: 35rpx 0;
+}
+.list>view:first-child {
+    width: 66%;
+    font-size: 24rpx;
+    text-align: justify;
+}
+.head {
+    width: 115rpx;
+    height: 115rpx;
+    border: 1px solid #55683f;
+    border-radius: 50%;
+    overflow: hidden;
+    position: absolute;
+    left: 25rpx;
+    top: 25rpx;
+}
+.msg {
+    font-size: 24rpx;
+    color: #383837;
+    line-height: 45rpx;
+    width: 100%;
+    margin-left: 165rpx;
+    position: relative;
+}
+.msg view:first-child {
+    font-size: 32rpx;
+    font-weight: bold;
+    margin-bottom: 10rpx;
+}
+.list>view:first-child>view:first-child image {
+    width: 100%;
+    height: 100%;
+}
+.serverTime {
+    position: absolute;
+    right: 0rpx;
+    top: 0rpx;
+    font-size: 26rpx;
+}

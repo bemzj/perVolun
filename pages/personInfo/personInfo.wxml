@@ -1,0 +1,66 @@
+<!--pages/personInfo/personInfo.wxml-->
+<view id='personInfo'>
+  <view class="list1">
+    <view class='l1-1'>
+      <view>
+        <image mode='scaleToFill' src="{{headImg == ''?'../../images/head.png':headImg}}"></image>
+      </view>
+      <view>
+        <text>{{name}}</text>
+      </view>
+    </view>
+    <block wx:if='{{status == "V"}}'>
+      <view class='l1-2'>
+        <view class='l1-2Wrap'>
+          <view wx:for='{{volunteerNav}}' wx:for-index='idx' wx:for-item='item' wx:key='{{idx}}'  data-to='{{item.to}}' bindtap='navTo'>
+            <view>
+              <image src='{{item.image}}'></image>
+              <view wx:if="{{ item.remind != 0 }}">{{ item.remind }}</view>
+            </view>
+            <view>
+              <text>{{item.text}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </block>
+    <block wx:if='{{status == "U"}}'>
+      <view class='l1-2'>
+        <view class='l1-2Wrap'>
+          <view wx:for='{{clientNav}}' wx:for-index='idx' wx:for-item='item' wx:key='{{idx}}'  data-to='{{item.to}}' bindtap='navTo'>
+            <view>
+              <image src='{{item.image}}'></image>
+              <view wx:if="{{ (remind - 1) == idx }}">1</view>
+            </view>
+            <view>
+              <text>{{item.text}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </block>
+  </view>
+  <view class='list2'>
+    <block wx:if='{{status == "V"}}'>
+      <view class='l2-wrap'>
+        <view wx:for='{{volunteerList}}' wx:for-item='item' wx:for-index='idx' wx:key='{{idx}}' data-to='{{item.to}}' bindtap='navTo'>
+          <icon style='background:url("{{item.image}}") no-repeat center center;background-size:  100%; auto'></icon>
+          <text>{{item.text}}</text>
+          <text wx:if='{{idx == 0}}'>(对活动的意见或建议)</text>
+          <icon style='background:url("{{icon8}}") no-repeat top left;background-size: 100% 100%;'></icon>
+        </view>
+      </view>
+    </block>
+    <block wx:if='{{status == "U"}}'>
+      <view class='l2-wrap l2-wrap1'>
+        <view wx:for='{{clientList}}' wx:for-item='item' wx:for-index='idx' wx:key='{{idx}}'  data-to='{{item.to}}' bindtap='{{ item.to == ""?"":"navTo"}}'>
+          <icon style='background:url("{{item.image}}") no-repeat center center;background-size:  100%; auto'></icon>
+          <text>{{item.text}}</text>
+          <text wx:if='{{idx == 2}}'>(对活动的意见或建议)</text>
+          <text class='count' wx:if='{{idx == 0}}'> {{ ServiceCount }}次</text>
+          <icon wx:if='{{idx!=0}}' style='background:url("{{icon8}}") no-repeat top left;background-size: 100% 100%;'></icon>
+        </view>
+      </view>
+    </block>
+  </view>
+</view>

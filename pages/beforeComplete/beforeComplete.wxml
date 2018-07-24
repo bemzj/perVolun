@@ -1,0 +1,23 @@
+<!--pages/beforeComplete/beforeComplete.wxml-->
+<!--wx:for='{{dataList}}' wx:for-index='idx' wx:for-item='item' wx:key='{{idx}}'  -->
+<view class='wrap'>
+  <view class='list' wx:for='{{dataList}}' wx:for-index='idx' wx:for-item='item' wx:key='{{idx}}'>
+    <view>
+      <view>
+        <image mode='scaleToFill' src='{{item.avatarurl}}'></image>
+      </view>
+      <view>
+        <view>
+          <text>{{item.name}}</text>
+        </view>
+        <view>
+          <text>{{item.service_time.date}}</text>
+        </view>
+      </view>
+    </view>
+    <view>
+      <text>等待用户</text>
+      <text>确认</text>
+    </view>
+  </view>
+</view>

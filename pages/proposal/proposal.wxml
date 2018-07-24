@@ -1,0 +1,36 @@
+<view class='wrap'>
+  <view class='list'>
+    <view class='list1'>
+      <view>
+        <image mode='aspectFit' src='../../images/title01.png'></image>
+      </view>
+    </view>
+    <form bindsubmit="submitSuggust">
+      <view class='list2' style='background: #ffffff;border-radius: 20rpx;border:1px solid #ede8e8;'>     
+          <view>
+            <textarea bindtap='write' bindfocus='hideImage' bindblur='showIt' value='{{textareaTxt}}' wx:if='{{disabled}}' name="content"></textarea>
+            <view class='adviceBox' wx:if='{{writing}}'>
+              <image  mode='widthFix' src='../../images/bj05.png'></image>
+            </view>
+          </view>
+      </view>
+      <view class='list-text' wx:if='{{user_type == "V"}}'>
+        <text>如您的建议被采纳，将收到一份精美礼品哦！</text>
+      </view>
+      <view class='list3'>
+        <!-- <view bindtap='submitSuggust'>确定提交</view> -->
+        <button  formType="submit">确定提交</button>
+      </view>
+    </form>
+  </view>
+</view>
+<!--弹窗-->
+<tips wx:if='{{tipStatus1}}'>
+  <text slot="tp1">{{popText1}}</text>
+  <view slot="confrim" bindtap='closeTip'>确定</view>
+</tips>
+<tips wx:if='{{tipStatus2}}'>
+  <text slot="tp1">{{popText1}}</text>
+  <view slot="confrim" style='width:48%;' bindtap='comfirmPop'>确定</view>
+  <view slot="cancel" style='width:48%;' bindtap='cancel'>取消</view>
+</tips>

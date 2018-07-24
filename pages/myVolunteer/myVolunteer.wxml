@@ -1,0 +1,72 @@
+<view class='wrap'>
+  <view class='list' wx:for='{{dataList}}' wx:for-index='idx' wx:for-item='item' wx:key='{{idx}}' bindtap='click01'data-index='{{idx}}'>
+    <view>
+      <view>
+        <image mode='scaleToFill' src='{{host + item.photo}}'></image>
+      </view>
+      <view>
+        <view class=''>
+          <text>{{item.name}}</text>
+        </view>
+        <view>
+          <text>服务时间： {{item.service_history.service_time.date}}</text>
+        </view>
+        <view>
+          <text>服务事项： {{item.service_history.service_matters}}</text>
+        </view>
+      </view>
+    </view>
+    <view catchtap='click02' class='{{!item.has?"":"gray"}}' data-index='{{!item.has}}'>
+      <text>去预约</text>
+    </view>
+  </view>
+</view>
+
+<view id='volunteerCard' wx:if='{{popUp}}'>
+  <view>
+    <view class='list'>
+      <view class='list1'>
+        <view>
+          <image mode='aspectFit' src='../../images/title03.png'></image>
+        </view>
+      </view>
+      <view class='list2-wrap' style=''>
+        <view class='list2' >
+        <view>
+          <view>
+            <view class='name'>
+              <text>{{detailData.name}}</text>
+            </view>
+            <view>
+              <text>电话：{{detailData.phone}}</text>
+            </view>
+            <view>
+              <text>义工编号：{{detailData.number}}</text>
+            </view>
+            <view>
+              <text>服务地址：</text>
+              <text>{{detailData.service_area}}</text>
+            </view>
+            <view class='head'>
+              <image src='{{host + detailData.photo}}' mode='widthFix'></image>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class='list3'>
+        <view bindtap='closePop'>确定</view>
+      </view>
+      </view>
+    </view>
+  </view>
+</view>
+<!--弹窗-->
+<tips wx:if='{{tipStatus1}}'>
+  <text slot="tp1">{{popText1}}</text>
+  <view slot="confrim" bindtap='closeTip'>确定</view>
+</tips>
+<tips wx:if='{{tipStatus2}}'>
+  <text slot="tp1">{{popText1}}</text>
+  <view slot="confrim" style='width:48%;' bindtap='comfirmPop'>确定</view>
+  <view slot="cancel" style='width:48%;' bindtap='cancel'>取消</view>
+</tips>
